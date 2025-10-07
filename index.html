@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DEKA — POS‑материалы и торговое оборудование под ключ</title>
+  <meta name="description" content="Серийные партии полочных и напольных POS‑конструкций. Полный цикл: дизайн → конструктор → производство → логистика. ISO 9001, награды POPAI. Запросите расчёт." />
+  <meta property="og:title" content="DEKA — POS‑материалы под ключ" />
+  <meta property="og:description" content="Производитель полного цикла. Серийные партии. ISO 9001, POPAI Awards." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-preview.jpg" />
+  <meta name="theme-color" content="#0f1115" />
+
+  <style>
+    /* ---- Base / Reset ---- */
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0; font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; color:#e6e8ec; background:#0f1115}
+    img,video{max-width:100%; height:auto; display:block}
+    a{color:inherit; text-decoration:none}
+    :root{
+      --bg:#0f1115; --card:#151923; --muted:#9aa3b2; --line:#232837; --accent:#ff4d4d; --accent-2:#5fe1b7; --shadow:0 10px 30px rgba(0,0,0,.35);
+      --container:1200px; --radius:18px;
+    }
+    .container{max-width:var(--container); margin:0 auto; padding:0 20px}
+    .grid{display:grid; gap:24px}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.9rem 1.25rem; border-radius:12px; border:1px solid transparent; cursor:pointer; font-weight:600}
+    .btn.primary{background:var(--accent); color:#111; box-shadow:0 6px 16px rgba(255,77,77,.35)}
+    .btn.secondary{background:transparent; border-color:#343a4e; color:#fff}
+    .btn.ghost{background:transparent; color:#e6e8ec}
+    .tag{display:inline-flex; align-items:center; gap:.35rem; padding:.35rem .6rem; border:1px solid #2a3042; border-radius:999px; color:#c7cfdd; font-size:.85rem}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
+    .muted{color:var(--muted)}
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+
+    /* ---- Header ---- */
+    .site-header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px); background:rgba(15,17,21,.72); border-bottom:1px solid var(--line)}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; height:64px}
+    .brand{display:flex; align-items:center; gap:.75rem; font-weight:800; letter-spacing:.2px}
+    .brand .logo{width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg,#ff6868,#ff3131)}
+    .nav a{opacity:.9}
+    .nav a:hover{opacity:1}
+    .nav-links{display:flex; gap:18px}
+    .nav-cta{display:flex; gap:10px}
+    .menu-btn{display:none}
+
+    /* ---- Hero ---- */
+    #hero{position:relative; isolation:isolate}
+    .hero-wrap{display:grid; grid-template-columns: 1.2fr .8fr; gap:32px; align-items:center; padding:56px 0}
+    .hero-media{position:relative; border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); background:radial-gradient(1200px 600px at 80% -10%, rgba(255,77,77,.2), transparent),linear-gradient(180deg,#131722,#0f1115)}
+    .hero-media .overlay{position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.0),rgba(0,0,0,.35))}
+    .hero-badges{display:flex; flex-wrap:wrap; gap:8px; margin:.75rem 0 1.25rem}
+    h1{font-size:clamp(28px,4vw,48px); line-height:1.1; margin:0 0 .5rem}
+    .lead{font-size:1.05rem; color:#cfd5e1}
+    .hero-ctas{display:flex; gap:12px; margin-top:18px}
+
+    /* ---- Facts ---- */
+    #facts{padding:28px 0 8px}
+    .facts-grid{grid-template-columns: repeat(4,1fr)}
+    .fact{padding:22px; display:flex; flex-direction:column; gap:6px}
+    .fact .n{font-weight:900; letter-spacing:.3px; font-size:clamp(20px,3.2vw,32px)}
+
+    /* ---- What we make ---- */
+    #catalog{padding:48px 0}
+    .section-title{font-size:1.75rem; margin:0 0 10px}
+    .section-note{margin:0 0 24px}
+    .catalog-grid{grid-template-columns: repeat(3,1fr)}
+    .catalog-item{padding:18px}
+    .catalog-item h3{margin:.25rem 0 .5rem}
+    .bullet{display:flex; gap:.5rem; align-items:flex-start; margin:.25rem 0; color:#c7cfdd}
+    .bullet::before{content:"•"; color:var(--accent)}
+
+    /* ---- Process ---- */
+    #process{padding:16px 0 48px}
+    .steps{grid-template-columns: repeat(3,1fr)}
+    .step{padding:20px}
+    .step .num{width:32px; height:32px; border-radius:10px; background:#23273a; display:inline-flex; align-items:center; justify-content:center; font-weight:700; margin-bottom:.75rem}
+
+    /* ---- Equipment ---- */
+    #equipment{padding:24px 0 48px}
+    .equip-grid{grid-template-columns: repeat(3,1fr)}
+    .equip{padding:18px}
+    .equip h4{margin:.25rem 0 .5rem}
+    .equip p{margin:0}
+    .equip .thumb{aspect-ratio:3/2; background:#10131a; border:1px solid var(--line); border-radius:12px; margin-bottom:12px; display:grid; place-items:center; color:#6f7a8e; font-size:.9rem}
+
+    /* ---- Cases ---- */
+    #cases{padding:16px 0 48px}
+    .cases-grid{grid-template-columns: repeat(3,1fr)}
+    .case{padding:16px}
+    .skeleton{height:180px; border-radius:12px; background:linear-gradient(90deg,#171b26 25%,#202536 37%,#171b26 63%); background-size:400% 100%; animation:shine 1.3s infinite linear}
+    @keyframes shine{0%{background-position:100% 0}100%{background-position:-100% 0}}
+
+    /* ---- Proof ---- */
+    #proof{padding:16px 0 48px}
+    .proof-grid{grid-template-columns: 1fr 1fr}
+    .certificate{padding:18px}
+    .awards{padding:18px}
+
+    /* ---- FAQ ---- */
+    #faq{padding:16px 0 48px}
+    details{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px}
+    details+details{margin-top:12px}
+    summary{cursor:pointer; font-weight:600}
+    summary::-webkit-details-marker{display:none}
+
+    /* ---- Lead / Contacts ---- */
+    #lead{padding:16px 0 48px}
+    .lead-grid{grid-template-columns: 1.3fr .7fr}
+    .quick-contacts{display:flex; gap:10px; flex-wrap:wrap}
+
+    /* ---- Footer ---- */
+    footer{padding:28px 0; border-top:1px solid var(--line); color:#c0c7d3}
+
+    /* ---- Modal ---- */
+    dialog{border:none; padding:0; border-radius:16px; width:min(720px,96vw); background:var(--card); color:#e6e8ec}
+    dialog::backdrop{background:rgba(3,5,10,.6); backdrop-filter:blur(4px)}
+    .modal-header{display:flex; justify-content:space-between; align-items:center; padding:16px 18px; border-bottom:1px solid var(--line)}
+    .modal-body{padding:18px}
+    .form-grid{display:grid; gap:14px; grid-template-columns:1fr 1fr}
+    .form-grid .full{grid-column:1/-1}
+    label{font-size:.9rem; color:#cfd5e1}
+    input,select,textarea{width:100%; padding:.8rem .9rem; border-radius:10px; border:1px solid #30364a; background:#0f1219; color:#e6e8ec}
+    textarea{min-height:110px}
+    .modal-actions{display:flex; justify-content:space-between; align-items:center; gap:10px; padding:14px 18px; border-top:1px solid var(--line)}
+    .progress{height:6px; background:#1e2330; border-radius:999px; overflow:hidden}
+    .progress>i{display:block; height:100%; width:50%; background:linear-gradient(90deg,var(--accent),#ff8a8a)}
+
+    /* ---- Media ---- */
+    @media (max-width: 1000px){
+      .hero-wrap{grid-template-columns:1fr; padding:28px 0}
+      .facts-grid,.catalog-grid,.equip-grid,.cases-grid,.steps{grid-template-columns:1fr 1fr}
+      .proof-grid,.lead-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .nav-links{display:none}
+      .menu-btn{display:inline-flex}
+      .facts-grid,.catalog-grid,.equip-grid,.cases-grid,.steps{grid-template-columns:1fr}
+      .nav{height:60px}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="DEKA POS">
+        <span class="logo" aria-hidden="true"></span>
+        <span>DEKA&nbsp;POS</span>
+      </a>
+      <nav class="nav-links" aria-label="Главная навигация">
+        <a href="#catalog">Продукция</a>
+        <a href="#process">Как работаем</a>
+        <a href="#equipment">Оборудование</a>
+        <a href="#cases">Кейсы</a>
+        <a href="#proof">Доказательства</a>
+        <a href="#faq">FAQ</a>
+        <a href="#lead">Контакты</a>
+      </nav>
+      <div class="nav-cta">
+        <button class="btn secondary" data-open-modal="#calcModal">Получить расчёт</button>
+        <button class="btn primary" data-open-modal="#consultModal">Консультация</button>
+        <button class="btn ghost menu-btn" id="menuBtn" aria-label="Меню">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="hero" class="container">
+      <div class="hero-wrap">
+        <div>
+          <div class="hero-badges">
+            <span class="tag">Производитель полного цикла</span>
+            <span class="tag">ISO 9001</span>
+            <span class="tag">POPAI Russia Awards</span>
+          </div>
+          <h1>Производим полочные и напольные конструкции для ритейла: быстро, серийно, надёжно</h1>
+          <p class="lead">Мощности промышленного уровня, ISO 9001, кейсы федеральных брендов.</p>
+          <div class="hero-ctas">
+            <button class="btn primary" data-open-modal="#calcModal">Получить расчёт</button>
+            <button class="btn secondary" data-open-modal="#consultModal">Разработать дизайн вместе с нами</button>
+          </div>
+        </div>
+        <div class="hero-media card">
+          <video muted autoplay loop playsinline poster="assets/hero-poster.jpg" aria-label="Видео с производства">
+            <source src="assets/production-hero.mp4" type="video/mp4" />
+          </video>
+          <div class="overlay" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Facts -->
+    <section id="facts" class="container">
+      <div class="grid facts-grid">
+        <div class="card fact"><div class="n">200 000</div><div class="muted">типовых полочных изделий / месяц</div></div>
+        <div class="card fact"><div class="n">50 000</div><div class="muted">оригинальных полочных изделий / месяц</div></div>
+        <div class="card fact"><div class="n">700</div><div class="muted">оригинальных напольных изделий / месяц</div></div>
+        <div class="card fact"><div class="n" aria-live="polite">21 год</div><div class="muted">лет на рынке POS</div></div>
+      </div>
+    </section>
+
+    <!-- What we make -->
+    <section id="catalog" class="container">
+      <div class="grid catalog-grid">
+        <article class="card catalog-item">
+          <h3>Полочные изделия</h3>
+          <p class="muted">Подставки, дисплеи, тестеры, держатели, мини‑стенды.</p>
+          <div class="bullet">Аккуратная кромка, УФ‑печать по листовым материалам</div>
+          <div class="bullet">Серийные партии, быстрая переналадка</div>
+        </article>
+        <article class="card catalog-item">
+          <h3>Напольные конструкции</h3>
+          <p class="muted">Стойки, шкафы, экспозиторы, премиальные экспозиции.</p>
+          <div class="bullet">Прочные каркасы: листогиб/проволока/порошковая окраска</div>
+          <div class="bullet">Сборка и упаковка под сеть</div>
+        </article>
+        <article class="card catalog-item">
+          <h3>Премиум и нестандарт</h3>
+          <p class="muted">Комбинирование материалов, подсветка, сложные геометрии.</p>
+          <div class="bullet">Белый/лак (на УФ‑печати), акрил‑гиб, 3D‑проволока</div>
+          <div class="bullet">Прототип/установочная партия для пилота</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="container">
+      <h2 class="section-title">Как мы работаем</h2>
+      <div class="grid steps">
+        <div class="card step">
+          <div class="num">1</div>
+          <h3>Концепт и дизайн</h3>
+          <p class="muted">Запускаем с брифа: поможем с концептом, дизайном и конструктором. Быстрый прототип по запросу.</p>
+        </div>
+        <div class="card step">
+          <div class="num">2</div>
+          <h3>Производство</h3>
+          <p class="muted">Полный цикл на своих мощностях. Типовая серия 100 напольных ед. — ориентир до ~30 дней (при готовом конструктиве).</p>
+        </div>
+        <div class="card step">
+          <div class="num">3</div>
+          <h3>Логистика и поддержка</h3>
+          <p class="muted">Упаковка, маркировка, отгрузка. Монтаж — опция по запросу.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipment -->
+    <section id="equipment" class="container">
+      <div class="grid equip-grid">
+        <article class="card equip">
+          <div class="thumb">Фото/видео: Esko Kongsberg</div>
+          <h4>Планшетный плоттер <strong>Esko Kongsberg Table</strong></h4>
+          <p class="muted">Быстрый раскрой жёстких материалов и прототипирование; точные габариты, ускоряет выпуск образцов/малых серий.</p>
+        </article>
+        <article class="card equip">
+          <div class="thumb">Фото/видео: SEI Mercury 609</div>
+          <h4>Лазерный комплекс <strong>SEI Laser Mercury 609</strong></h4>
+          <p class="muted">Чистый рез/гравировка акрила и пластика, сложные контуры без дообработки кромки, высокая повторяемость.</p>
+        </article>
+        <article class="card equip">
+          <div class="thumb">Фото/видео: SwissQprint Impala</div>
+          <h4>УФ‑принтер <strong>SwissQprint Impala</strong></h4>
+          <p class="muted">Печать напрямую по листовым материалам; высокая детализация, стойкие УФ‑чернила, белый/лак — для премиальных POS.</p>
+        </article>
+        <article class="card equip">
+          <div class="thumb">Фото/видео: Shannon</div>
+          <h4>Гибочные машины <strong>Shannon</strong></h4>
+          <p class="muted">Аккуратные гибы пластика/акрила; стабильная геометрия партии, ровная линия сгиба.</p>
+        </article>
+        <article class="card equip">
+          <div class="thumb">Фото/видео: FELDER H100</div>
+          <h4>ОЦ с ЧПУ <strong>FELDER Profit H100</strong></h4>
+          <p class="muted">Фрезерование/сверление ЛДСП/ДСП и композитов; точность посадочных, скорость серий.</p>
+        </article>
+        <article class="card equip">
+          <div class="thumb">Фото/видео: TEMPORA ELX</div>
+          <h4>Кромкооблицовочный <strong>TEMPORA ELX FORMAT4</strong></h4>
+          <p class="muted">Чистая кромка, долговечность и эстетика ЛДСП‑элементов.</p>
+        </article>
+        <article class="card equip">
+          <div class="thumb">Фото/видео: SAFANDARLEY</div>
+          <h4>Листогибочный пресс <strong>SAFANDARLEY</strong></h4>
+          <p class="muted">Точные гибы металла, повторяемость и скорость при изготовлении каркасов.</p>
+        </article>
+        <article class="card equip">
+          <div class="thumb">Фото/видео: 3D‑R100 NICE</div>
+          <h4>Станок для проволоки <strong>3D‑R100 NICE</strong></h4>
+          <p class="muted">3D‑гибка проволоки для корзин/держателей/каркасов; быстрая переналадка.</p>
+        </article>
+        <article class="card equip">
+          <div class="thumb">Фото/видео: Политех</div>
+          <h4>Камера полимеризации <strong>«Политех»</strong></h4>
+          <p class="muted">Износостойкое покрытие, цветоустойчивость, защита от коррозии.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Cases (placeholders) -->
+    <section id="cases" class="container">
+      <h2 class="section-title">Кейсы</h2>
+      <p class="section-note muted">Секции‑заглушки. Добавим тексты и фото после получения материалов от клиента.</p>
+      <div class="grid cases-grid">
+        <article class="card case"><div class="skeleton" aria-hidden="true"></div><h4>Кейс #1</h4><p class="muted">Задача → решение → тираж → срок</p></article>
+        <article class="card case"><div class="skeleton" aria-hidden="true"></div><h4>Кейс #2</h4><p class="muted">Задача → решение → тираж → срок</p></article>
+        <article class="card case"><div class="skeleton" aria-hidden="true"></div><h4>Кейс #3</h4><p class="muted">Задача → решение → тираж → срок</p></article>
+      </div>
+    </section>
+
+    <!-- Proof: ISO & Awards -->
+    <section id="proof" class="container">
+      <h2 class="section-title">Доказательства качества</h2>
+      <div class="grid proof-grid">
+        <div class="card certificate">
+          <h3>ISO 9001</h3>
+          <p class="muted">Разместим скан сертификата (номер и срок действия).</p>
+          <div class="thumb" style="aspect-ratio:16/10; background:#10131a; border:1px solid var(--line); border-radius:12px; display:grid; place-items:center; color:#6f7a8e">Скан сертификата</div>
+        </div>
+        <div class="card awards">
+          <h3>POPAI Russia Awards</h3>
+          <ul>
+            <li><strong>2 место</strong> — Стойка для очков • «Товары и принадлежности для быта, отдыха, развлечений, бытовая химия», <em>Mini‑display</em></li>
+            <li><strong>2 место</strong> — Французские выходные Vivienne Sabo • «Декоративная косметика и парфюмерия», <em>Temporary</em></li>
+            <li><strong>2 место</strong> — Презентационная стойка GOLD 20 • «Фармацевтика», <em>Permanent</em></li>
+          </ul>
+          <p class="muted">Указываем только фактические награды. Членство в ассоциациях не заявляем.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container">
+      <h2 class="section-title">FAQ</h2>
+      <details>
+        <summary>С каких тиражей вы работаете?</summary>
+        <p class="muted">Напольные/габаритные проекты — от ~30 шт.; компактные полочные — от ~500 шт. Возможна установочная партия для пилота.</p>
+      </details>
+      <details>
+        <summary>Как быстро запускаете серию?</summary>
+        <p class="muted">При готовой конструкции и согласованных материалах типовая серия 100 напольных ед. — ориентир до ~30 дней.</p>
+      </details>
+      <details>
+        <summary>Если у нас нет дизайна и чертежей?</summary>
+        <p class="muted">Запускаем с брифа: поможем с концептом, дизайном и конструктором, сделаем образец/прототип.</p>
+      </details>
+      <details>
+        <summary>Делаете монтаж?</summary>
+        <p class="muted">Да, компетенция есть, но как опция по запросу (в базовую оферту лендинга не выносим).</p>
+      </details>
+      <details>
+        <summary>Где работаете?</summary>
+        <p class="muted">По РФ (особенно Москва/МО, СПб, Екатеринбург, ЦФО). СНГ/зарубеж — по согласованию.</p>
+      </details>
+    </section>
+
+    <!-- Lead / Contacts -->
+    <section id="lead" class="container">
+      <h2 class="section-title">Свяжитесь с нами</h2>
+      <div class="grid lead-grid">
+        <div class="card" style="padding:18px">
+          <h3>Быстрая консультация</h3>
+          <p class="muted">Напишите нам или оставьте заявку — ответим в рабочее время.</p>
+          <div class="quick-contacts">
+            <a class="btn secondary" href="https://wa.me/00000000000" target="_blank" rel="noopener" data-track="wa">WhatsApp</a>
+            <a class="btn secondary" href="https://t.me/username" target="_blank" rel="noopener" data-track="tg">Telegram</a>
+            <a class="btn ghost" href="tel:+78000000000" data-track="tel">8 800 000‑00‑00</a>
+            <a class="btn ghost" href="mailto:info@deka.ru" data-track="mail">info@deka.ru</a>
+          </div>
+        </div>
+        <div class="card" style="padding:18px">
+          <h3>Нужен расчёт?</h3>
+          <p class="muted">Короткая форма — и менеджер свяжется с вами.</p>
+          <button class="btn primary" data-open-modal="#calcModal">Открыть форму</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container" style="display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap">
+      <div>© DEKA, 2025</div>
+      <div class="muted">Политика ПДн • Реквизиты • Карта сайта</div>
+    </div>
+  </footer>
+
+  <!-- Modal: Calculate -->
+  <dialog id="calcModal" aria-labelledby="calcTitle">
+    <form method="dialog" id="calcForm">
+      <div class="modal-header">
+        <h3 id="calcTitle">Заявка на расчёт</h3>
+        <button class="btn ghost" type="button" data-close>✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+        <div id="step1">
+          <div class="form-grid" style="margin-top:14px">
+            <p class="muted full">Шаг 1 из 2</p>
+            <label>Имя*<input required name="name" autocomplete="name" /></label>
+            <label>Компания*<input required name="company" /></label>
+            <label class="full">Телефон/мессенджер*<input required name="phone" inputmode="tel" /></label>
+            <label class="full">E‑mail<input name="email" type="email" /></label>
+          </div>
+        </div>
+        <div id="step2" hidden>
+          <div class="form-grid" style="margin-top:14px">
+            <p class="muted full">Шаг 2 из 2</p>
+            <label>Отрасль<select name="industry"><option>Косметика/beauty</option><option>FMCG</option><option>Household/бытовая химия</option><option>Другое</option></select></label>
+            <label>Тип POS<select name="type" multiple size="3"><option>Полочные</option><option>Напольные</option><option>Премиум/нестандарт</option></select></label>
+            <label>Тираж<input name="qty" type="number" min="1" placeholder="Например, 500" /></label>
+            <label>Срок<select name="term"><option>Как можно быстрее</option><option>До 2 недель</option><option>До 1 месяца</option><option>Гибко</option></select></label>
+            <label class="full">Комментарий<textarea name="comment" placeholder="Ссылка на ТЗ/файлы, требования, материалы"></textarea></label>
+            <label class="full"><input type="checkbox" required /> Согласен(а) с обработкой персональных данных</label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <div>
+          <button class="btn secondary" type="button" id="prevBtn">Назад</button>
+        </div>
+        <div>
+          <button class="btn ghost" type="button" data-close>Отмена</button>
+          <button class="btn primary" id="nextBtn">Далее</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Modal: Consult -->
+  <dialog id="consultModal" aria-labelledby="consultTitle">
+    <form method="dialog" id="consultForm">
+      <div class="modal-header">
+        <h3 id="consultTitle">Разработать дизайн вместе с нами</h3>
+        <button class="btn ghost" type="button" data-close>✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-grid">
+          <label>Имя*<input required name="name" /></label>
+          <label>Контакт (WA/TG/тел.)*<input required name="contact" /></label>
+          <label class="full">Удобное время<select name="time"><option>Сегодня</option><option>Завтра</option><option>В течение недели</option></select></label>
+          <label class="full">Комментарий<textarea name="comment"></textarea></label>
+          <label class="full"><input type="checkbox" required /> Согласен(а) с обработкой персональных данных</label>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <div></div>
+        <div>
+          <button class="btn ghost" type="button" data-close>Отмена</button>
+          <button class="btn primary">Отправить</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <script>
+    // Mobile menu (simple scroll to top for demo)
+    document.getElementById('menuBtn').addEventListener('click', ()=>{ window.scrollTo({top:0,behavior:'smooth'}); });
+
+    // Modal helpers
+    function qs(s, el=document){ return el.querySelector(s); }
+    function qsa(s, el=document){ return [...el.querySelectorAll(s)]; }
+    qsa('[data-open-modal]').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const id = btn.getAttribute('data-open-modal');
+        const dlg = qs(id);
+        if (dlg) dlg.showModal();
+      });
+    });
+    qsa('[data-close]').forEach(btn=>btn.addEventListener('click', e=>{ e.target.closest('dialog')?.close(); }));
+
+    // Multi‑step form logic (calc)
+    const step1 = qs('#step1');
+    const step2 = qs('#step2');
+    const nextBtn = qs('#nextBtn');
+    const prevBtn = qs('#prevBtn');
+    const progress = qs('#progressBar');
+    const form = qs('#calcForm');
+
+    prevBtn.addEventListener('click', ()=>{
+      if (!step2.hasAttribute('hidden')){
+        step2.hidden = true; step1.hidden = false; progress.style.width='50%'; nextBtn.textContent='Далее';
+      }
+    });
+
+    nextBtn.addEventListener('click', (e)=>{
+      e.preventDefault();
+      if (step1.hidden){ // submit
+        // Demo: show success and close
+        const dlg = form.closest('dialog');
+        dlg.close(); alert('Спасибо! Мы свяжемся с вами в рабочее время.');
+        form.reset(); step1.hidden=false; step2.hidden=true; progress.style.width='50%'; nextBtn.textContent='Далее';
+      } else {
+        // validate step1 required
+        const req = qsa('#step1 [required]');
+        const ok = req.every(i=>i.value.trim().length>0);
+        if (!ok){ req.find(i=>!i.value.trim()).focus(); return; }
+        step1.hidden = true; step2.hidden = false; progress.style.width='100%'; nextBtn.textContent='Отправить';
+      }
+    });
+
+    // Simple analytics hooks
+    qsa('[data-track]').forEach(el=> el.addEventListener('click', ()=>{ console.log('track', el.dataset.track); }));
+
+    // Respect reduced motion
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches){
+      qsa('video[autoplay]').forEach(v=>{ v.removeAttribute('autoplay'); v.pause?.(); });
+    }
+  </script>
+</body>
+</html>
